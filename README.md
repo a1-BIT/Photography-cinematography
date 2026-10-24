@@ -1,5 +1,7 @@
 # MyView — photography & cinematography
 
+Photography-cinematography — Sawan (Photography & cinematography).
+
 A responsive, editorial portfolio built with Next.js App Router, TypeScript, and Tailwind CSS 4. Three runtime packages only: Next.js, React, and React DOM. No database, UI kit, animation library, gallery package, or media SDK.
 
 ## Run locally
