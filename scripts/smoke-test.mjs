@@ -3,7 +3,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3000";
 const home = await fetch(base);
 assert.equal(home.status, 200);
 const html = await home.text();
-for (const content of ["MyView", "Selected", "Weddings", "Fashion", "Commercial", "contact", "srcSet"]) assert.ok(html.includes(content), `Missing ${content}`);
+for (const content of ["Frame and Films", "Selected", "Weddings", "Fashion", "Commercial", "contact", "srcSet"]) assert.ok(html.includes(content), `Missing ${content}`);
 async function post(body, headers = {}) {
   return fetch(`${base}/api/contact`, { method: "POST", headers: { "Content-Type": "application/json", ...headers }, body: JSON.stringify(body) });
 }

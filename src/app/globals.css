@@ -4,6 +4,7 @@
 :root { color-scheme: light; --paper: #f4f3ed; --ink: #272822; --muted: #686a61; --line: #d7d8ce; --accent: #bf4828; --selection: #d8dfc9; --field-line: #a7aa9e; --placeholder: #72766b; --button-hover: #42483b; --error: #a43423; --success: #3d6035; }
 :root[data-theme="sage"] { --paper: #e7ede3; --ink: #243b30; --muted: #526657; --line: #c3d0be; --accent: #8d4929; --selection: #c6d8bd; --field-line: #8b9f86; --placeholder: #526657; --button-hover: #3d5847; --error: #9b3426; --success: #305c36; }
 :root[data-theme="midnight"] { color-scheme: dark; --paper: #17212c; --ink: #f1eee6; --muted: #b2bfca; --line: #394957; --accent: #f3ad7e; --selection: #3c5367; --field-line: #708396; --placeholder: #a7b6c5; --button-hover: #cedce5; --error: #ffad9e; --success: #a5d6a7; }
+:root[data-theme="white"] { --paper: #ffffff; --ink: #202020; --muted: #666666; --line: #dedede; --accent: #333333; --selection: #e6e6e6; --field-line: #a0a0a0; --placeholder: #707070; --button-hover: #454545; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 28px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
@@ -26,10 +27,10 @@ img { display: block; max-width: 100%; }
 .swatch-color { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; border: 1px solid #80808080; background: #f4f3ed; color: #272822; }
 .theme-swatch[data-palette="sage"] .swatch-color { background: #91ab87; color: #172b20; }
 .theme-swatch[data-palette="midnight"] .swatch-color { background: #263b51; color: #f1eee6; }
+.theme-swatch[data-palette="white"] .swatch-color { background: #ffffff; color: #202020; }
 .theme-swatch[aria-pressed="true"] .swatch-color { outline: 1px solid var(--ink); outline-offset: 3px; }
 .theme-swatch:hover .swatch-color { outline: 1px solid var(--muted); outline-offset: 3px; }
-.wordmark { font-size: 35px; letter-spacing: -2.2px; font-weight: 800; line-height: 1; white-space: nowrap; flex-shrink: 0; }
-.wordmark span { display: inline-block; font-size: 13px; vertical-align: top; letter-spacing: 0; padding: 3px 0 0 5px; color: var(--accent); }
+.wordmark { font-size: 30px; letter-spacing: -1.4px; font-weight: 800; line-height: 1; white-space: nowrap; flex-shrink: 0; }
 .navigation { display: flex; gap: 41px; align-items: center; font-size: 13px; }
 .navigation a { transition: color .2s; }
 .navigation a:hover { color: var(--accent); }
@@ -157,7 +158,7 @@ footer { border-top: 1px solid var(--line); }
 @media (max-width: 760px) {
   .header-actions { gap: 16px; }
   .site-header { height: 85px; }
-  .wordmark { font-size: 30px; }
+  .wordmark { font-size: 24px; letter-spacing: -1px; }
   .navigation { gap: 24px; font-size: 12px; }
   .intro { padding-top: 45px; gap: 28px; }
   h1 { font-size: clamp(65px, 9.7vw, 90px); }
@@ -185,7 +186,7 @@ footer { border-top: 1px solid var(--line); }
   .form-footer { flex-direction: row; align-items: center; }
   .footer-main { gap: 30px; }
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .site-header { position: relative; }
   .menu-toggle { display: block; border: 0; padding: 10px 0 10px 8px; background: none; font-size: 12px; }
   .navigation { display: none; }
@@ -193,6 +194,7 @@ footer { border-top: 1px solid var(--line); }
   .nav-contact { justify-content: space-between; }
 }
 @media (max-width: 550px) {
+  .wordmark { font-size: 18px; letter-spacing: -.7px; }
   .header-actions { gap: 8px; }
   .theme-swatch { width: 28px; }
   .page-shell { padding: 0 6%; }
@@ -256,5 +258,12 @@ footer { border-top: 1px solid var(--line); }
   .lightbox-bottom p { font-size: 10px; max-width: 190px; }
   .lightbox-controls { gap: 2px; }
   .lightbox-controls button { padding: 8px; }
+}
+@media (max-width: 360px) {
+  .site-header { height: auto; min-height: 100px; flex-wrap: wrap; gap: 10px; padding: 16px 0; }
+  .site-header .wordmark { font-size: 18px; }
+  .header-actions { width: 100%; justify-content: space-between; gap: 6px; }
+  .theme-swatch { width: 28px; }
+  .menu-toggle { white-space: nowrap; padding-left: 4px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { brandName } from "@/lib/brand";
 export const runtime = "nodejs";
 const reply = (error: string, status: number) => NextResponse.json({ error }, { status });
 export async function POST(request: NextRequest) {
@@ -37,7 +38,7 @@ export async function POST(request: NextRequest) {
   try {
     const result = await fetch("https://api.resend.com/emails", {
       method: "POST", headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: CONTACT_FROM, to: [CONTACT_TO], ...(email ? { reply_to: contact.trim() } : {}), subject: `MyView enquiry from ${name.trim()}`, text: `Name: ${name.trim()}\nContact: ${contact.trim()}\n\n${message.trim()}` }),
+      body: JSON.stringify({ from: CONTACT_FROM, to: [CONTACT_TO], ...(email ? { reply_to: contact.trim() } : {}), subject: `${brandName} enquiry from ${name.trim()}`, text: `Name: ${name.trim()}\nContact: ${contact.trim()}\n\n${message.trim()}` }),
       signal: AbortSignal.timeout(10000),
     });
     if (!result.ok) return reply("Your message couldn’t be delivered. Please try again later.", 502);

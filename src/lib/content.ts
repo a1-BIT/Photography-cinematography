@@ -1,9 +1,10 @@
-// Edit this file to change the brand, biography, and portfolio. All work below is demo content.
+import { brandName } from "./brand";
+// Edit this file to change the biography and portfolio; the name lives in brand.ts. All work below is demo content.
 export const site = {
-  name: "MyView",
+  name: brandName,
   tagline: "Photography & cinematography",
   description: "A considered eye. An honest story. Photography and films that find the extraordinary in the everyday.",
-  about: "MyView is a space for stories told through light, movement, and the moments in between. From intimate celebrations to expressive campaigns, the approach is always the same: observe closely, feel deeply, and create with intention.",
+  about: `${brandName} is a space for stories told through light, movement, and the moments in between. From intimate celebrations to expressive campaigns, the approach is always the same: observe closely, feel deeply, and create with intention.`,
   aboutNote: "The people. The places. The feeling of being there. That’s what stays with me — and what I want to leave with you.",
   // Add real URLs when ready, e.g. { label: 'Instagram', url: 'https://instagram.com/yourname' }.
   socials: [] as { label: string; url: string }[],

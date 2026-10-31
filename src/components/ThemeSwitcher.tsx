@@ -6,9 +6,10 @@ const themes = [
   { id: "ivory", label: "Ivory", color: "#f4f3ed" },
   { id: "sage", label: "Sage", color: "#e7ede3" },
   { id: "midnight", label: "Midnight", color: "#17212c" },
+  { id: "white", label: "Pure white", color: "#ffffff" },
 ] as const;
 type Theme = (typeof themes)[number]["id"];
-const storageKey = "myview-theme";
+const storageKey = "frame-and-films-theme";
 
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
@@ -23,7 +24,8 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(storageKey);
+      // Keep the theme chosen before the brand rename.
+      const saved = localStorage.getItem(storageKey) ?? localStorage.getItem("myview-theme");
       const match = themes.find(item => item.id === saved);
       if (match) {
         applyTheme(match.id);

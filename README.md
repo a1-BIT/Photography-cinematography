@@ -1,4 +1,4 @@
-# MyView — photography & cinematography
+# Frame and Films — photography & cinematography
 
 Photography-cinematography — Sawan (Photography & cinematography).
 
@@ -19,9 +19,9 @@ The scripts use Next.js’s bundled Webpack compiler for compatibility with this
 
 ## Update the content
 
-The header includes Ivory, Sage, and Midnight theme swatches. A choice updates the site palette immediately and is saved in browser local storage. Saved preferences are restored after hydration, so the initial server and client markup agree. Storage is optional: the controls still work when it is blocked. Palette values live in `src/app/globals.css`; no theme library is needed.
+The header includes Ivory, Sage, Midnight, and Pure white theme swatches. Pure white uses a `#ffffff` background with neutral text and accents. A choice updates the site palette immediately and is saved in browser local storage. Saved preferences are restored after hydration, so the initial server and client markup agree. Storage is optional: the controls still work when it is blocked. Palette values live in `src/app/globals.css`; no theme library is needed.
 
-Edit `src/lib/content.ts`. It contains branding, biography, optional social links, hero/profile images, and all portfolio entries. Any category accepts both photos and videos. Add entries to the `works` array; counts and filters update automatically. There is intentionally no CMS or admin dashboard.
+Edit `src/lib/brand.ts` for the website name. Edit `src/lib/content.ts` for biography, optional social links, hero/profile images, and all portfolio entries. Any category accepts both photos and videos. Add entries to the `works` array; counts and filters update automatically. There is intentionally no CMS or admin dashboard.
 
 The site currently uses **illustrative copy and stock demo imagery from Unsplash**, plus Cloudinary’s public sample sea-turtle clip to demonstrate video playback. Film posters and titles are illustrative; the lightbox labels the sample footage. Replace these with your own licensed work and biography before launch, then set `site.demo` to `false`. The demo footer is intentionally visible. No actual photographer credentials, client claims, or social accounts are implied.
 
@@ -62,7 +62,7 @@ Without those variables, the endpoint returns an honest unavailable status. It n
 
 1. Push this project to a Git repository and import it into Vercel. If it is in a monorepo, set this folder as the Root Directory.
 2. Keep the detected **Next.js** preset, default build command, and default output directory.
-3. Set `NEXT_PUBLIC_SITE_URL` to your actual production origin, e.g. `https://myview.example`, and add the Cloudinary and contact variables above.
+3. Set `NEXT_PUBLIC_SITE_URL` to your actual production origin, e.g. `https://frameandfilms.example`, and add the Cloudinary and contact variables above.
 4. Deploy. Add your domain under **Project → Settings → Domains**, and apply the DNS records Vercel provides.
 5. Redeploy after changing public environment variables or content. Confirm the contact message reaches your inbox.
 
